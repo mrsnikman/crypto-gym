@@ -1,20 +1,22 @@
-from tkinter import *
 
-def reload(x):
-    return x
+import tkinter as tk
+from styles import center, Colors, Sizes
+import pages
 
-def create_wigets():
-    
-    menu = Entry(root)
-    menu.grid(row=0, column=0, columnspan=3)
-    root.mainloop() #отображение окна    
-    return
 
-if __name__ == '__main__':
-    root = Tk()
-    root.title('Тренажёр') #заголовок
-    root['bg']='#fafafa'
-    root.geometry('500x500')
-    root.resizable(width=False, height=False)
-    create_wigets();    
+
+window = tk.Tk()
+window.title('Тренажёр')
+window.iconbitmap("media/icon.ico")
+window.geometry(f'{Sizes.window_WIDTH}x{Sizes.window_HEIGHT}')
+window.configure(bg = Colors.main_color )
+window.resizable(False, False)
+center(window)
+
+pages.main_frame(window)
+
+
+
+
+window.mainloop()        
 

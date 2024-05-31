@@ -3,6 +3,7 @@ from styles import Colors, Font, Sizes
 from texts import StartPage
 from user import User
 from pages.viginer_page import viginer_frame
+from pages.afine_page import afine_frame
 
 def main_frame(window):
     frame = tk.Frame(window, width=Sizes.window_WIDTH, height=Sizes.window_HEIGHT, bg=Colors.main_color)
@@ -30,7 +31,7 @@ def goto_viginer_page(frame, window):
 
 def goto_affinne_page(frame, window):
     frame.destroy();
-    viginer_frame(frame, window)
+    afine_frame(frame, window)
 
 def exit(frame, windows):
     frame.destroy();

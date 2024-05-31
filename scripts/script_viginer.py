@@ -24,11 +24,11 @@ def encodeWiginer(textpath, key):
     return code
 
 def decodeWiginer(textpath, key):
+    text = textToArr(textpath)
     A= ["а", "б", "в", "г", "д", "е", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"]
-    code = []
-    text=textToArr(textpath)
-    for l in range(len(text)):
-        for i in range(len(text[l])):
-            for j in range(32):
-                if text[l][i] == A[j] or text[l][i] == A[j].upper():
-                    text.append(j)
+    code = ''
+    while len(key)<len(text):
+        key*=2
+    for i in range(len(text)):
+        code+=A[(text[i]-A.index(key[i]))%32]
+    return code

@@ -13,15 +13,15 @@ def main_frame(window):
              bg=Colors.main_color,
              fg=Colors.text_color).pack(pady=50)
 
-    Viginer_button = tk.Button(frame, font=Font.base_font, text='Viginer', bg=Colors.button_color, width=9,
+    Viginer_button = tk.Button(frame, font=Font.standard_font, text='Viginer', bg=Colors.button_color, width=9,
                             command=lambda: goto_viginer_page(frame, window))
     Viginer_button.pack(pady=30)
 
-    Affine_button = tk.Button(frame, font=Font.base_font, text='Affin', bg=Colors.button_color, width=9,
+    Affine_button = tk.Button(frame, font=Font.standard_font, text='Affin', bg=Colors.button_color, width=9,
                             command=lambda: goto_affinne_page(frame, window))
     Affine_button.pack(pady=30)
 
-    exit_button = tk.Button(frame, font=Font.base_font, text='Exit', bg=Colors.button_color, width=9,
+    exit_button = tk.Button(frame, font=Font.standard_font, text='Exit', bg=Colors.button_color, width=9,
                             command=lambda: exit(frame, window))
     exit_button.pack(pady=30)
 

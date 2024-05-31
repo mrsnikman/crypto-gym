@@ -27,7 +27,7 @@ class Colors:
 
 
 class Font:
-    font_name = 'Terminal'
-    base_font = ("Terminal", 25)
-    standard_font = ('', 15)
+    font_name = ''
+    base_font = ('', 30)
+    standard_font = ('', 20)
     little_font = ('', 10)

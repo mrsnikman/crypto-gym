@@ -13,13 +13,13 @@ def afine_frame(frame, window):
     text_input = tk.Entry(frame, font=Font.base_font, width=15, justify=tk.CENTER)
     text_input.pack(pady=10)
 
-    confirm_button = tk.Button(frame, font=Font.base_font, text='Confirm', bg=Colors.button_color, width=9,
+    confirm_button = tk.Button(frame, font=Font.standard_font, text='Confirm', bg=Colors.button_color, width=9,
                             command=lambda: goto_menu(frame, window))
-    confirm_button.pack(pady=30)
+    confirm_button.pack(pady=15)
 
-    menu_button = tk.Button(frame, font=Font.base_font, text='Exit', bg=Colors.button_color, width=9,
+    menu_button = tk.Button(frame, font=Font.standard_font, text='Exit', bg=Colors.button_color, width=9,
                             command=lambda: goto_menu(frame, window))
-    menu_button.pack(pady=30)
+    menu_button.pack(pady=15)
 
     def goto_menu(frame, windows):
         frame.destroy();

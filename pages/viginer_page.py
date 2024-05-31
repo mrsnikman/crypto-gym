@@ -12,14 +12,18 @@ def viginer_frame(frame, window):
              bg=Colors.main_color,
              fg=Colors.text_color).pack(pady=50)
     
-    text_input = tk.Entry(frame, font=Font.base_font, width=15, justify=tk.CENTER)
-    text_input.pack(pady=10)
+    text_input = tk.Entry(frame, font=Font.standard_font, width=15, justify=tk.CENTER)
+    text_input.pack(pady=10) 
 
-    confirm_button = tk.Button(frame, font=Font.base_font, text='Confirm', bg=Colors.button_color, width=9,
+    encode_button = tk.Button(frame, font=Font.standard_font, text='Зашифровать', bg=Colors.button_color, width=9,
                             command=lambda: encode(frame, window))
-    confirm_button.pack(pady=30)
+    encode_button.pack(pady=30)
 
-    menu_button = tk.Button(frame, font=Font.base_font, text='Exit', bg=Colors.button_color, width=9,
+    decode_button = tk.Button(frame, font=Font.standard_font, text='Дешифровать', bg=Colors.button_color, width=9,
+                            command=lambda: decode(frame, window))
+    decode_button.pack(pady=30)
+
+    menu_button = tk.Button(frame, font=Font.standard_font, text='Выход', bg=Colors.button_color, width=9,
                             command=lambda: goto_menu(frame, window))
     menu_button.pack(pady=30)
 
@@ -30,5 +34,13 @@ def viginer_frame(frame, window):
 
     def encode(frame, windows):
         input_path = text_input;
-        mb.showinfo('Полученные значения', encodeWiginer(input_path.get(), 'ананас'))
+        encoded=encodeWiginer(input_path.get(), 'ананас')
+        mb.showinfo('Полученные значения', encoded)
+        encoded_file = open("texts/output/output.txt", "w")
+        encoded_file.write(encoded)
+        
+    
+    def decode(frame, windows):
+        input_path = text_input;
+        mb.showinfo('Полученные значения', decodeWiginer(input_path.get(), 'ананас'))
         

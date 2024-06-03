@@ -10,7 +10,7 @@ def viginer_frame(frame, window):
 
     tk.Label(frame, text="Шифр Вижинёра", font=Font.base_font,
              bg=Colors.main_color,
-             fg=Colors.text_color).pack(pady=50)
+             fg=Colors.text_color).pack(pady=30)
     
     tk.Label(frame, text="Путь к файлу: ", font=Font.little_font,
              bg=Colors.main_color,
@@ -36,30 +36,38 @@ def viginer_frame(frame, window):
                             command=lambda: decode(frame, window))
     decode_button.pack(pady=10)
 
+    help_button = tk.Button(frame, font=Font.standard_font, text='Помощь', bg=Colors.button_color, width=13,
+                            command=lambda: help(frame, window))
+    help_button.pack(pady=10)
+
     menu_button = tk.Button(frame, font=Font.standard_font, text='Выход', bg=Colors.button_color, width=13,
                             command=lambda: goto_menu(frame, window))
     menu_button.pack(pady=10)
 
     def goto_menu(frame, windows):
-        frame.destroy();
-        window.destroy();
+        frame.destroy()
+        window.destroy()
         #main_frame(window);
 
     def encode(frame, windows):
-        input_path = text_input;
+        input_path = text_input.get()
+        key = key_input.get()
         try:
-            encoded=encodeWiginer(input_path.get(), 'ананас')
+            encoded=encodeWiginer(input_path, key)
             mb.showinfo('Полученные значения', encoded)
         except:
-            mb.showinfo('Ошибка.', 'Проверьте правильность введённого пути.')
+            mb.showerror('Ошибка.', 'Проверьте правильность введённого пути или ключа.')
         
         
     
     def decode(frame, windows):
-        input_path = text_input;
+        input_path = text_input.get();
+        key = key_input.get();
         try:
-            mb.showinfo('Полученные значения', decodeWiginer(input_path.get(), 'ананас'))
+            mb.showinfo('Полученные значения', decodeWiginer(input_path, key))
         except:
-            mb.showinfo('Ошибка.', 'Проверьте правильность введённого пути.')
-       
-        
+            mb.showerror('Ошибка.', 'Проверьте правильность введённого пути.')
+
+
+    def help(frame, windows):
+        mb.showinfo('Помощь. ', 'Шифр Виженера - метод полиалфавитного шифрования буквенного текста с использованием ключевого слова. Шифрование производится согласно формуле: Cj=(Mj+Kj)modn, а расшифрование: Mj=(Cj-Kj)modn. ')

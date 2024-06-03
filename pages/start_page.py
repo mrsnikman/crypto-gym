@@ -1,7 +1,5 @@
 import tkinter as tk
 from styles import Colors, Font, Sizes
-from texts import StartPage
-from user import User
 from pages.viginer_page import viginer_frame
 from pages.afine_page import afine_frame
 
@@ -13,17 +11,21 @@ def main_frame(window):
              bg=Colors.main_color,
              fg=Colors.text_color).pack(pady=50)
 
-    Viginer_button = tk.Button(frame, font=Font.standard_font, text='Viginer', bg=Colors.button_color, width=9,
+    Viginer_button = tk.Button(frame, font=Font.standard_font, text='Шифр Вижинера', bg=Colors.button_color, width=15,
                             command=lambda: goto_viginer_page(frame, window))
-    Viginer_button.pack(pady=30)
+    Viginer_button.pack(pady=15)
 
-    Affine_button = tk.Button(frame, font=Font.standard_font, text='Affin', bg=Colors.button_color, width=9,
+    Affine_button = tk.Button(frame, font=Font.standard_font, text='Афинный Шифр', bg=Colors.button_color, width=15,
                             command=lambda: goto_affinne_page(frame, window))
-    Affine_button.pack(pady=30)
+    Affine_button.pack(pady=15)
 
-    exit_button = tk.Button(frame, font=Font.standard_font, text='Exit', bg=Colors.button_color, width=9,
+    Test_button = tk.Button(frame, font=Font.standard_font, text='Тестирование', bg=Colors.button_color, width=15,
+                            command=lambda: goto_affinne_page(frame, window))
+    Test_button.pack(pady=15)
+
+    exit_button = tk.Button(frame, font=Font.standard_font, text='Выход', bg=Colors.button_color, width=15,
                             command=lambda: exit(frame, window))
-    exit_button.pack(pady=30)
+    exit_button.pack(pady=15)
 
 def goto_viginer_page(frame, window):
     frame.destroy();

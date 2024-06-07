@@ -19,8 +19,8 @@ def main_frame(window):
                             command=lambda: goto_affinne_page(frame, window))
     Affine_button.pack(pady=15)
 
-    Test_button = tk.Button(frame, font=Font.standard_font, text='Тестирование', bg=Colors.button_color, width=15,
-                            command=lambda: goto_affinne_page(frame, window))
+    Test_button = tk.Button(frame, font=Font.standard_font, text='Тестирование WIP', bg=Colors.button_color, width=15,
+                            command=lambda: goto_test_page(frame, window))
     Test_button.pack(pady=15)
 
     exit_button = tk.Button(frame, font=Font.standard_font, text='Выход', bg=Colors.button_color, width=15,
@@ -34,6 +34,9 @@ def goto_viginer_page(frame, window):
 def goto_affinne_page(frame, window):
     frame.destroy();
     afine_frame(frame, window)
+
+def goto_test_page(frame, window):
+    return
 
 def exit(frame, windows):
     frame.destroy();
